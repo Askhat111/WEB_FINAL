@@ -202,7 +202,7 @@ Admin dashboard for managing menu items and orders.
 The project is deployed on a cloud platform (Render / Railway / Replit).
 
 Live URL:
-[https://your-deployed-project-url.com](https://dashboard.render.com/web/srv-d654d9ngi27c73ervp60/deploys/dep-d654d9vgi27c73ervpbg)
+(https://dashboard.render.com/web/srv-d654d9ngi27c73ervp60/deploys/dep-d654d9vgi27c73ervpbg)
 
 👥 Team Work & Defence
 •	The project was developed as a group project
