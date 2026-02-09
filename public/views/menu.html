@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Menu • Asphalt-8</title>
+    <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+
+<div class="nav">
+    <div class="nav-inner">
+        <a class="brand" href="/">Asphalt-8 <span class="badge">Menu</span></a>
+        <div class="nav-links">
+            <a href="/views/menu.html">Menu</a>
+            <a href="/views/orders.html">Orders</a>
+            <a href="/views/profile.html">Profile</a>
+            <a id="navAdmin" href="/views/admin.html">Admin</a>
+            <a id="navLogin" class="btn secondary" href="/views/login.html">Login</a>
+            <button id="navLogout" class="btn secondary" style="display:none;">Logout</button>
+            <a class="btn" href="/views/menu.html">Cart <span id="cartCount" class="badge">0</span></a>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div id="toast" class="toast" style="display:none;"></div>
+
+    <div class="grid">
+        <div class="card">
+            <div class="row" style="justify-content: space-between;">
+                <h2 style="margin:0;">Menu</h2>
+                <button id="loadMenuBtn" class="btn secondary">Refresh</button>
+            </div>
+
+            <div class="sep"></div>
+
+            <div class="row">
+                <div style="min-width:220px; flex:1;">
+                    <label class="muted">Category</label>
+                    <select id="categoryFilter">
+                        <option value="">All</option>
+                        <option value="coffee">coffee</option>
+                        <option value="pastry">pastry</option>
+                        <option value="dessert">dessert</option>
+                    </select>
+                </div>
+
+                <div style="min-width:220px; flex:1;">
+                    <label class="muted">Availability</label>
+                    <div class="row">
+                        <input id="availableOnly" type="checkbox" />
+                        <span class="muted">Only available</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sep"></div>
+
+            <div id="menuList" class="list"></div>
+        </div>
+
+        <div class="card">
+            <h3 style="margin:0 0 8px;">Cart</h3>
+            <div id="cartBox" class="list"></div>
+
+            <div class="sep"></div>
+
+            <div class="row" style="justify-content: space-between;">
+                <div class="muted">Total</div>
+                <div id="cartTotal" class="price">0 ₸</div>
+            </div>
+
+            <div style="height:10px;"></div>
+
+            <button id="checkoutBtn" class="btn">Checkout</button>
+            <div class="muted" style="margin-top:8px;">Needs login to create order</div>
+        </div>
+    </div>
+
+    <div class="footer">Asphalt-8 Coffee Shop • Menu</div>
+</div>
+
+<script src="/js/api.js"></script>
+<script src="/js/menu.js"></script>
+<script src="/js/cart.js"></script>
+</body>
+</html>

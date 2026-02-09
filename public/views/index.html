@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Asphalt-8 Coffee Shop</title>
+    <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+
+<div class="nav">
+    <div class="nav-inner">
+        <a class="brand" href="/">
+            Asphalt-8 <span class="badge">Coffee Shop</span>
+        </a>
+
+        <div class="nav-links">
+            <a href="/views/menu.html">Menu</a>
+            <a href="/views/orders.html">Orders</a>
+            <a href="/views/profile.html">Profile</a>
+            <a id="navAdmin" href="/views/admin.html">Admin</a>
+            <a id="navLogin" class="btn secondary" href="/views/login.html">Login</a>
+            <button id="navLogout" class="btn secondary" style="display:none;">Logout</button>
+            <a class="btn" href="/views/menu.html">Cart <span id="cartCount" class="badge">0</span></a>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div id="toast" class="toast" style="display:none;"></div>
+
+    <div class="hero">
+        <div class="card">
+            <h1 class="h-title">Fast coffee. Clean orders. Real-time stock.</h1>
+            <div class="muted">
+                Asphalt-8 is a small coffee shop app: browse menu, add to cart, place orders.
+                Admin can manage items and view simple reports.
+            </div>
+
+            <div class="sep"></div>
+
+            <div class="row">
+                <a class="btn" href="/views/menu.html">Open Menu</a>
+                <a class="btn secondary" href="/views/register.html">Create account</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3 style="margin:0 0 8px;">Quick notes</h3>
+            <div class="list">
+                <div class="item">
+                    <div>
+                        <h3>JWT auth</h3>
+                        <div class="muted">Login saves token to localStorage</div>
+                    </div>
+                    <div class="pill">ready</div>
+                </div>
+
+                <div class="item">
+                    <div>
+                        <h3>Menu + cart</h3>
+                        <div class="muted">Cart stored locally, order sent to API</div>
+                    </div>
+                    <div class="pill">ok</div>
+                </div>
+
+                <div class="item">
+                    <div>
+                        <h3>Admin</h3>
+                        <div class="muted">Create/edit/delete menu items</div>
+                    </div>
+                    <div class="pill">if role=admin</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">Asphalt-8 Coffee Shop • AITU • SE-2416</div>
+</div>
+
+<script src="/js/api.js"></script>
+</body>
+</html>

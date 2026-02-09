@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Register • Asphalt-8</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+
+<div class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="/">Asphalt-8 <span class="badge">Register</span></a>
+    <div class="nav-links">
+      <a href="/views/menu.html">Menu</a>
+      <a href="/views/orders.html">Orders</a>
+      <a href="/views/profile.html">Profile</a>
+      <a id="navAdmin" href="/views/admin.html">Admin</a>
+      <a id="navLogin" class="btn secondary" href="/views/login.html">Login</a>
+      <button id="navLogout" class="btn secondary" style="display:none;">Logout</button>
+      <a class="btn" href="/views/menu.html">Cart <span id="cartCount" class="badge">0</span></a>
+    </div>
+  </div>
+</div>
+
+<div class="container" style="max-width:520px;">
+  <div id="toast" class="toast" style="display:none;"></div>
+
+  <div class="card">
+    <h2 style="margin:0 0 10px;">Create account</h2>
+
+    <form id="registerForm" class="form">
+      <input class="input" id="username" type="text" placeholder="Username" required />
+      <input class="input" id="email" type="email" placeholder="Email" required />
+      <input class="input" id="password" type="password" placeholder="Password" required />
+      <button class="btn" type="submit">Register</button>
+    </form>
+
+    <div class="sep"></div>
+
+    <div class="muted">
+      Already have account? <a href="/views/login.html" style="color: var(--brand); font-weight:600;">Login</a>
+    </div>
+  </div>
+
+  <div class="footer">Asphalt-8 Coffee Shop • Auth</div>
+</div>
+
+<script src="/js/api.js"></script>
+<script src="/js/auth.js"></script>
+</body>
+</html>
