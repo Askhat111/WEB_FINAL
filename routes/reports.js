@@ -4,19 +4,16 @@ const Order = require('../models/Order');
 const MenuItem = require('../models/MenuItem');
 const router = express.Router();
 
-//GET /api/reports/sales (only admins)
 router.get('/sales', auth, async (req, res) => {
   try {
     if (req.user.role !== 'admin') {
       return res.status(403).json({ error: 'Admin access required' });
     }
-    
-    //Sum
+   
     const totalSales = await Order.aggregate([
       { $group: { _id: null, total: { $sum: '$totalAmount' } } }
     ]);
-    
-    //sells for days(last 7 days)
+ 
     const sevenDaysAgo = new Date();
     sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
     
@@ -31,8 +28,7 @@ router.get('/sales', auth, async (req, res) => {
       },
       { $sort: { _id: -1 } }
     ]);
-    
-    //orders of today
+  
     const today = new Date();
     today.setHours(0, 0, 0, 0);
     
@@ -55,7 +51,6 @@ router.get('/sales', auth, async (req, res) => {
   }
 });
 
-//GET /api/reports/inventory (low stock)
 router.get('/inventory', auth, async (req, res) => {
   try {
     if (req.user.role !== 'admin') {
@@ -78,7 +73,6 @@ router.get('/inventory', auth, async (req, res) => {
   }
 });
 
-//GET /api/reports/popular 
 router.get('/popular', auth, async (req, res) => {
   try {
     if (req.user.role !== 'admin') {

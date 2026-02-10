@@ -10,14 +10,12 @@ mongoose.connect(process.env.MONGODB_URI)
 
 const app = express();
 
-//Middleware
 app.use(express.json());
 app.use(express.static('public'));
 
 const User = require('./models/User');
 const MenuItem = require('./models/MenuItem');
 
-//Test data
 async function createTestData() {
   try {
     const userCount = await User.countDocuments();
@@ -27,7 +25,6 @@ async function createTestData() {
       
       const bcrypt = require('bcryptjs');
       
-      //Admin
       const adminHash = await bcrypt.hash('admin123', 10);
       await User.create({
         username: 'admin',
@@ -36,7 +33,6 @@ async function createTestData() {
         role: 'admin'
       });
       
-      //Customer
       const customerHash = await bcrypt.hash('customer123', 10);
       await User.create({
         username: 'customer',
@@ -45,7 +41,6 @@ async function createTestData() {
         role: 'customer'
       });
       
-      //Menu
       const menuCount = await MenuItem.countDocuments();
       if (menuCount === 0) {
         await MenuItem.create([
@@ -71,14 +66,12 @@ async function createTestData() {
 
 setTimeout(createTestData, 1000);
 
-// Routes
 app.use('/api/auth', require('./routes/authRoutes'));
 app.use('/api/users', require('./routes/users'));
 app.use('/api/menu', require('./routes/menuRoutes'));
 app.use('/api/orders', require('./routes/orders'));
 app.use('/api/reports', require('./routes/reports'));
 
-//Health check
 app.get('/api/health', (req, res) => {
   res.json({ 
     status: 'OK', 
@@ -87,7 +80,6 @@ app.get('/api/health', (req, res) => {
   });
 });
 
-//HTML pages
 const pages = ['/', '/login', '/register', '/menu', '/orders', '/admin', '/profile'];
 pages.forEach(page => {
   app.get(page, (req, res) => {

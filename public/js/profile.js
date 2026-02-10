@@ -14,8 +14,7 @@ async function loadProfile() {
         <div><strong>Role:</strong> ${profile.role}</div>
       </div>
     `;
-    
-    //fill in with current data
+ 
     document.getElementById('username').value = profile.username;
     document.getElementById('email').value = profile.email;
     
@@ -47,8 +46,7 @@ function setupForm() {
       setToast('New passwords do not match', 'bad');
       return;
     }
-    
-    //data to send
+ 
     const updateData = {};
     if (username) updateData.username = username;
     if (email) updateData.email = email;
@@ -66,13 +64,11 @@ function setupForm() {
       const result = await API.put('/api/users/profile', updateData);
       
       setToast('Profile updated successfully!', 'ok');
-      
-      //clear
+
       document.getElementById('currentPassword').value = '';
       document.getElementById('newPassword').value = '';
       document.getElementById('confirmPassword').value = '';
       
-      //update
       await loadProfile();
       
     } catch (err) {

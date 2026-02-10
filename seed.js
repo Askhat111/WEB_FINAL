@@ -15,8 +15,7 @@ async function seed() {
     await Order.deleteMany({});
     
     console.log('🗑️  Cleared old data');
-    
-    //admin
+
     const hashedPass = await bcrypt.hash('admin123', 10);
     const admin = await User.create({
       username: 'admin',
@@ -24,16 +23,14 @@ async function seed() {
       password: hashedPass,
       role: 'admin'
     });
-    
-    //customer
+
     const customer = await User.create({
       username: 'customer',
       email: 'customer@email.com',
       password: hashedPass,
       role: 'customer'
     });
-    
-    //menu items (prices in tg)
+   
     const items = await MenuItem.create([
       { name: 'Espresso', price: 1500, category: 'coffee', stockQuantity: 100, isAvailable: true },
       { name: 'Cappuccino', price: 1800, category: 'coffee', stockQuantity: 80, isAvailable: true },
@@ -42,8 +39,7 @@ async function seed() {
       { name: 'Blueberry Muffin', price: 1000, category: 'pastry', stockQuantity: 40, isAvailable: true },
       { name: 'Chocolate Cake', price: 1600, category: 'dessert', stockQuantity: 30, isAvailable: true }
     ]);
-    
-    //sample orders
+ 
     await Order.create([
       {
         items: [{ menuItem: items[0]._id, quantity: 2, price: 1500 }],
