@@ -177,9 +177,9 @@ User registration form with input validation.
 ![Login](public/screenshots/03-login.png)
 Login page with JWT authentication.
 
-### Menu Page
-![Menu](public/screenshots/04-menu.png)
-Menu displaying available items.
+### Profile Page
+![Menu](public/screenshots/04-profile.png)
+Profile page with user information and account management features.
 
 ### Orders Page
 ![Orders](public/screenshots/05-orders.png)
